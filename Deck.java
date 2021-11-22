@@ -1,5 +1,6 @@
 public class Deck {
 	private Card[] cards;
+	private int cardsDealt;
 	
 	public Card makeClub(int value) {
 		return new Card("Clubs", value);
@@ -19,6 +20,7 @@ public class Deck {
 	
 	public Deck() {
 		this.cards = new Card[52];
+		this.cardsDealt = 0;
 		int c = 0;
 		for (int i = 2; i < 15; i++) {
 			cards[c++] = makeClub(i);
@@ -44,5 +46,9 @@ public class Deck {
 			newCards[c++] = cards[r];
 		}
 		this.cards = newCards;
+	}
+	
+	public Card deal() {
+		return this.cards[this.cardsDealt++];
 	}
 }
